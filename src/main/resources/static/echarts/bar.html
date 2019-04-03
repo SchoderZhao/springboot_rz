@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>性别统计</title>
+    <script src="../public/libs/jquery.min.js"></script>
+    <script src="../public/js/echarts/echarts.js"></script>
+</head>
+
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+
+
+</body>
+
+<script type="text/javascript">
+
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        option = {
+            title : {
+                text: '性别统计',
+                subtext: ''
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['男','女']
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    //data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                    data : []
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'男',
+                    type:'bar',
+                    data:[]
+
+                },
+                {
+                    name:'女',
+                    type:'bar',
+                    data:[]
+
+                }
+            ]
+        };
+
+        $(function () {
+            $.get("/sys/echarts/bar",function (r) {
+                option.xAxis[0].data=r.xAxisData;
+                option.series[0].data=r.series0Data;
+                option.series[1].data=r.series1Data;
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            });
+
+
+    });
+</script>
+</html>
