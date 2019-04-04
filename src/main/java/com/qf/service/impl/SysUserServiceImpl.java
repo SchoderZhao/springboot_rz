@@ -85,6 +85,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public R findPieData() {
 
+
         List<Map<String, Object>> list = sysUserMapper.findPieData();
         List list1 = new ArrayList();
         List list2 = new ArrayList();
