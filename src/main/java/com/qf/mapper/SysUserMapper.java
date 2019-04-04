@@ -99,4 +99,6 @@ public interface SysUserMapper {
     List<Map<String,Object>> findPieData();
 
     List<Map<String,Object>> findBarData();
+
+    List<Map<String,Object>> findUserForExport();
 }

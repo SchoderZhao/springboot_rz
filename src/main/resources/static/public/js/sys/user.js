@@ -51,10 +51,7 @@ var vm = new Vue({
         user:{}
     },
     methods:{
-        export:function(){
-            console.log("导出！");
-            location.href="http://127.0.0.1:8080/exportExcel";
-        },
+
         del: function(){
             var rows = getSelectedRows();
             if(rows == null){
@@ -149,6 +146,10 @@ var vm = new Vue({
             };
 
 
+        },
+        exports: function(){
+            console.log("导出！");
+            location.href="http://127.0.0.1:8080/exportExcel";
         }
     }
 });

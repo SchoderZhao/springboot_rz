@@ -348,4 +348,9 @@
         where u.dept_id=d.id
         GROUP BY u.dept_id;
     </select>
+
+    <select id="findUserForExport" resultType="java.util.Map">
+    select user_id userId, username, email, mobile, create_time createTime, sex
+    from sys_user where status!=0
+  </select>
 </mapper>

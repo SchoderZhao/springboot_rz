@@ -7,6 +7,7 @@ import com.qf.utils.ResultData;
 import com.qf.utils.Sorter;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @auther ZhaoXingLei
@@ -22,4 +23,6 @@ public interface SysUserService {
 
     R findPieData ();
     R findBarData ();
+
+    List<Map<String,Object>> exportExcel();
 }

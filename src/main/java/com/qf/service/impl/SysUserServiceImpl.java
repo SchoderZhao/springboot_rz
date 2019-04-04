@@ -137,4 +137,10 @@ public class SysUserServiceImpl implements SysUserService {
 
         return null;
     }
+
+    @Override
+    public List<Map<String, Object>> exportExcel() {
+
+        return sysUserMapper.findUserForExport();
+    }
 }
