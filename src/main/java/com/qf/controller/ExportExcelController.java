@@ -31,13 +31,13 @@ public class ExportExcelController {
     public void exportExcel(HttpServletResponse response){
         try{
             response.setContentType("application/octet-stream");//xxx.*
-            String filename = "千锋员工信息.xls";
+            String filename = "员工信息.xls";
             filename = URLEncoder.encode(filename,"utf-8");//编码
             response.setHeader("content-disposition","attachment;filename="+filename);
             List<Map<String,Object>>  list = sysUserService.exportExcel();
             //list--->excel
             Workbook workbook = new HSSFWorkbook();//空的excel文件
-            Sheet sheet =  workbook.createSheet("千锋集团员工信息");
+            Sheet sheet =  workbook.createSheet("员工信息");
             String titles = "userId,username,email,mobile,createTime,sex";
             for (int i = 0; i < list.size(); i++) {
                 Row row = sheet.createRow(i);//行
