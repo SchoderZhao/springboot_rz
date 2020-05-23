@@ -167,7 +167,7 @@ var vm = new Vue({
                 data: {
                     simpleData: {
                         enable: true,
-                        idKey: "menuId",
+                        idKy: "menuId",
                         pIdKey: "parentId",
                         rootPId: -1
                     },

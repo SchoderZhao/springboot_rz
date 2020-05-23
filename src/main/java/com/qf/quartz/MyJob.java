@@ -28,17 +28,18 @@ public class MyJob implements Job {
 
             String json = (String)context.getJobDetail().getJobDataMap()
                     .get(SysConstant.SCHEDULE_DATA_KEY);
+            System.out.println(json);
             ScheduleJob scheduleJob = JSON.parseObject(json, ScheduleJob.class);
             String beanName = scheduleJob.getBeanName();
             String method = scheduleJob.getMethodName();
             String params = scheduleJob.getParams();
-
+            System.out.println("\n"+params+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             Object object = SpringContextUtils.getBean(beanName);
             Class clazz = object.getClass();
-            if (StringUtils.isEmpty(params)){
+            if (StringUtils.isEmpty(params)){//无参数
                 Method method1 = clazz.getDeclaredMethod(method);
                 method1.invoke(object);
-            }else {
+            }else {//有参数
                 Method method1 = clazz.getDeclaredMethod(method, String.class);
                 method1.invoke(object,params);
 

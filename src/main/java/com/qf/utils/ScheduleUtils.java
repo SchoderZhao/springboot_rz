@@ -97,6 +97,7 @@ public class ScheduleUtils {
 
     public  static void runOnce(Scheduler scheduler,long jobId){
         try{
+
             JobKey jobKey = JobKey.jobKey(SysConstant.JOB_KEY_PREFIX+jobId);
             scheduler.triggerJob(jobKey);
             //scheduler.start();

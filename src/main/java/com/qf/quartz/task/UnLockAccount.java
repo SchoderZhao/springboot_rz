@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component("unLockAccount")
 public class UnLockAccount {
 
-    public void jie(){
-        System.out.println("解封账号");
+    public void jie(String number){
+        System.out.println("解封账号"+number);
     }
 }

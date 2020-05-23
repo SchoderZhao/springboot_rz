@@ -22,7 +22,7 @@ public class KaptchaConfig {
         DefaultKaptcha producer = new DefaultKaptcha();
         Properties properties = new Properties();
         properties.setProperty(Constants.KAPTCHA_SESSION_KEY,"black");
-        properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_CHAR_LENGTH,"1");
+        properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_CHAR_LENGTH,"4");
         properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_FONT_COLOR,"white");
         Config config =new Config(properties);
         producer.setConfig(config);
